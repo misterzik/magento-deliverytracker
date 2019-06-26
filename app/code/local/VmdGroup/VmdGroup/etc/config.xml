@@ -1,0 +1,111 @@
+<?xml version="1.0"?>
+<config>
+  <modules>
+    <VMDGroup_VMDGroup>
+      <version>1.0.0</version>
+    </VMDGroup_VMDGroup>
+  </modules>
+  <global>
+    <helpers>
+      <vmdgroup>
+        <class>VMDGroup_VMDGroup_Helper</class>
+      </vmdgroup>
+    </helpers>
+	<blocks>
+	  <vmdgroup>
+		<class>VMDGroup_VMDGroup_Block</class>
+	  </vmdgroup>
+	</blocks>
+	<models>
+	  <vmdgroup>
+		<class>VMDGroup_VMDGroup_Model</class>
+		<resourceModel>vmdgroup_mysql4</resourceModel>
+	  </vmdgroup>
+	  <vmdgroup_mysql4>
+		<class>VMDGroup_VMDGroup_Model_Mysql4</class>
+		<entities>		  
+			  <mealdelivery>
+				<table>mealdelivery</table>
+			  </mealdelivery>
+        </entities>
+	  </vmdgroup_mysql4>
+	</models>
+	<resources>
+	  <vmdgroup_setup>
+		<setup>
+		  <module>VMDGroup_VMDGroup</module>
+		</setup>
+		<connection>
+		  <use>core_setup</use>
+		</connection>
+	  </vmdgroup_setup>
+	  <vmdgroup_write>
+		<connection>
+		  <use>core_write</use>
+		</connection>
+	  </vmdgroup_write>
+	  <vmdgroup_read>
+		<connection>
+		  <use>core_read</use>
+		</connection>
+	  </vmdgroup_read>
+	</resources>
+  </global>
+  <admin>
+	<routers>
+	  <vmdgroup>
+	    <use>admin</use>
+		<args>
+		  <module>VMDGroup_VMDGroup</module>
+		  <frontName>admin_vmdgroup</frontName>
+		</args>
+	  </vmdgroup>
+	</routers>
+  </admin>
+  <adminhtml>
+	<menu>
+	  <vmdgroup module="vmdgroup">
+		<title>Meal Delivery</title>
+		<sort_order>100</sort_order>
+		<children>
+		  <mealdelivery module="vmdgroup">
+		    <title>Manage Meal Delivery Dates</title>
+			<sort_order>0</sort_order>
+			<action>admin_vmdgroup/adminhtml_mealdelivery</action>
+		  </mealdelivery>
+		</children>
+	  </vmdgroup>
+	</menu>
+	<acl>
+	  <resources>
+		<all>
+		  <title>Allow Everything</title>
+		</all>
+		<admin>
+		  <children>
+			<vmdgroup translate="title" module="vmdgroup">
+			  <title>vmdgroup</title>
+			  <sort_order>1000</sort_order>
+			  <children>
+		  <vmdgroupbackend translate="title">
+			<title>VMD Group - Credits</title>
+		  </vmdgroupbackend>
+		  <mealdelivery translate="title">
+			<title>Manage Mealdelivery</title>
+			<sort_order>0</sort_order>
+		  </mealdelivery>
+			  </children>
+			</vmdgroup>
+		  </children>
+		</admin>
+	  </resources>
+	</acl>
+	<layout>
+	  <updates>
+		<vmdgroup>
+		  <file>vmdgroup.xml</file>
+		</vmdgroup>
+	  </updates>
+	</layout>
+  </adminhtml>
+</config> 

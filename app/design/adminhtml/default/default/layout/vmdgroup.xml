@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+  <vmdgroup_adminhtml_vmdgroupbackend_index>
+	<reference name="content">
+	  <block type="vmdgroup/adminhtml_vmdgroupbackend" name="vmdgroupbackend" template="vmdgroup/vmdgroupbackend.phtml"/>
+	</reference>
+  </vmdgroup_adminhtml_vmdgroupbackend_index>
+  <vmdgroup_adminhtml_mealdelivery_index>
+	<reference name="content">
+	  <block type="vmdgroup/adminhtml_mealdelivery" name="mealdelivery" />
+	</reference>
+  </vmdgroup_adminhtml_mealdelivery_index>
+</layout>
